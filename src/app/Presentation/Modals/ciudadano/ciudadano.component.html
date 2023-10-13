@@ -27,7 +27,8 @@
                 (blur)='focosArr[0][0] = false'>
             </div>
             <div class='text-danger' *ngIf='(nombre.dirty || nombre.touched) && nombre.invalid'>
-              <div *ngIf='nombre.errors.required'>
+              <!-- <div *ngIf='nombre.errors.required'> -->
+              <div *ngIf='nombre.errors'>
                 Este campo es requerido
               </div>
             </div>
@@ -48,7 +49,8 @@
                 (focus)='focosArr[1][0] = true; focosArr[1][1] = true' (blur)='focosArr[1][0] = false'>
             </div>
             <div class='text-danger' *ngIf='(aPaterno.dirty || aPaterno.touched) && aPaterno.invalid'>
-              <div *ngIf='aPaterno.errors.required'>
+              <!-- <div *ngIf='aPaterno.errors.required'> -->
+              <div *ngIf='aPaterno.errors'>
                 Este campo es requerido
               </div>
             </div>
@@ -79,7 +81,8 @@
                 (blur)='focosArr[2][0] = false'>
             </div>
             <div class='text-danger' *ngIf='(edad.dirty || edad.touched) && edad.invalid'>
-              <div *ngIf='edad.errors.required'>
+              <!-- <div *ngIf='edad.errors.required'> -->
+              <div *ngIf='edad.errors'>
                 Este campo es requerido
               </div>
             </div>
@@ -101,8 +104,7 @@
               <td class=' text-center'>{{d.direccion}}</td>
               <td class=' text-center'>{{d.codPostal}}</td>
               <td class=' text-center'>
-                <input type="checkbox" name="{{d.direccion}}" id="{{d.id}}" #activo='ngModel'
-                  [(ngModel)]='d.activo'>
+                <input type="checkbox" name="{{d.direccion}}" id="{{d.id}}" #activo='ngModel' [(ngModel)]='d.activo'>
               </td>
             </tr>
             <tr *ngIf='domicilios.length==0'>

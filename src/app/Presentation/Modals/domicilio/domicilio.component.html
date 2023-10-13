@@ -27,7 +27,8 @@
                 (blur)='focosArr[0][0] = false'>
             </div>
             <div class='text-danger' *ngIf='(ciudad.dirty || ciudad.touched) && ciudad.invalid'>
-              <div *ngIf='ciudad.errors.required'>
+              <!-- <div *ngIf='ciudad.errors.required'> -->
+              <div *ngIf='ciudad.errors'>
                 Este campo es requerido
               </div>
             </div>
@@ -48,7 +49,8 @@
                 (focus)='focosArr[1][0] = true; focosArr[1][1] = true' (blur)='focosArr[1][0] = false'>
             </div>
             <div class='text-danger' *ngIf='(pais.dirty || pais.touched) && pais.invalid'>
-              <div *ngIf='pais.errors.required'>
+              <!-- <div *ngIf='pais.errors.required'> -->
+              <div *ngIf='pais.errors'>
                 Este campo es requerido
               </div>
             </div>
@@ -69,7 +71,8 @@
                 (focus)='focosArr[2][0] = true; focosArr[2][1] = true' (blur)='focosArr[2][0] = false'>
             </div>
             <div class='text-danger' *ngIf='(codPostal.dirty || codPostal.touched) && codPostal.invalid'>
-              <div *ngIf='codPostal.errors.required'>
+              <!-- <div *ngIf='codPostal.errors.required'> -->
+              <div *ngIf='codPostal.errors'>
                 Este campo es requerido
               </div>
             </div>
@@ -90,7 +93,8 @@
                 (focus)='focosArr[3][0] = true; focosArr[3][1] = true' (blur)='focosArr[3][0] = false'>
             </div>
             <div class='text-danger' *ngIf='(direccion.dirty || direccion.touched) && direccion.invalid'>
-              <div *ngIf='direccion.errors.required'>
+              <!-- <div *ngIf='direccion.errors.required'> -->
+              <div *ngIf='direccion.errors'>
                 Este campo es requerido
               </div>
             </div>

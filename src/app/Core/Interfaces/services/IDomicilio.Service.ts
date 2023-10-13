@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import { DomicilioModel } from "src/app/Data/Model/Domicilio.Model";
-import { ConsultaList } from "src/app/Data/Model/Shared/ConsultaList";
+import { DomicilioModel } from "../../../Data/Model/Domicilio.Model";
+import { ConsultaList } from "../../../Data/Model/Shared/ConsultaList";
 
 export abstract class IDomicilioService {
   abstract AgregarDomicilio(domicilio: DomicilioModel): Observable<DomicilioModel>;

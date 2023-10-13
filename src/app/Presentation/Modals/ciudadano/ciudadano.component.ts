@@ -1,14 +1,14 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs';
-import { ICiudadanoService } from 'src/app/Core/Interfaces/services/ICiudadano.Service';
-import { IDomicilioService } from 'src/app/Core/Interfaces/services/IDomicilio.Service';
-import { CiudadanoModel } from 'src/app/Data/Model/Ciudadano.Model';
-import { ModalType } from 'src/app/Data/Model/Shared/ModalType';
+import { ICiudadanoService } from '../../../Core/Interfaces/services/ICiudadano.Service';
+import { IDomicilioService } from '../../../Core/Interfaces/services/IDomicilio.Service';
+import { CiudadanoModel } from '../../../Data/Model/Ciudadano.Model';
+import { ModalType } from '../../../Data/Model/Shared/ModalType';
 import { AlertasService } from '../../Shared/Alertas.service';
-import { DomicilioModel } from 'src/app/Data/Model/Domicilio.Model';
-import { AccionesModal } from 'src/app/Data/enums/AccionesModal.enum';
-import { ConsultaList } from 'src/app/Data/Model/Shared/ConsultaList';
+import { DomicilioModel } from '../../../Data/Model/Domicilio.Model';
+import { AccionesModal } from '../../../Data/enums/AccionesModal.enum';
+import { ConsultaList } from '../../../Data/Model/Shared/ConsultaList';
 
 @Component({
   selector: 'app-ciudadano',
@@ -24,7 +24,7 @@ export class CiudadanoComponent implements OnInit {
 
   //#region Inicios
   constructor(
-    // private dialog: MatDialogRef<CiudadanoComponent>,
+    private dialog: MatDialogRef<CiudadanoComponent>,
     @Inject(MAT_DIALOG_DATA) public entrada: ModalType<CiudadanoModel>,
     private service: ICiudadanoService,
     private serviceDom: IDomicilioService,
@@ -67,7 +67,7 @@ export class CiudadanoComponent implements OnInit {
     }
   }
   validaSeleccionadas() {
-    this.entrada.param.domicilios = this.domicilios.filter(d => { if (d.activo === true) return d });
+    this.entrada.param.domicilios = this.domicilios.filter((d: any) => { if (d.activo === true) return d });
     this.entrada.accion === AccionesModal.crear ? this.CreaService() : this.confirmaModicifacion();
   }
   guardadoCorrecto() {

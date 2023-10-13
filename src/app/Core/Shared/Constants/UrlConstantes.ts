@@ -17,4 +17,33 @@ export const UrlConstantes = {
   borrarDomicilio: apiRuta + "domicilio/BorrarDomicilio",
   leerDomicilios: apiRuta + "domicilio/leerDomicilios",
   leerDomicilioPorId: apiRuta + "domicilio/LeerDomicilioPorId",
+
+  /** Menu Rutes */
+  getMenus: apiRuta + "",
+  getMenuById: apiRuta + "",
+  addMenu: apiRuta + "",
+  deleteMenuById: apiRuta + "",
+  updateMenuById: apiRuta + "",
+
+  /** Profiles Rutes */
+  getProfiles: apiRuta + "",
+  getProfileById: apiRuta + "",
+  addProfile: apiRuta + "",
+  deleteProfileById: apiRuta + "",
+  updateProfileById: apiRuta + "",
+
+  /** User Rutes */
+  getUsers: apiRuta + "",
+  getUserById: apiRuta + "",
+  addUser: apiRuta + "",
+  deleteUserById: apiRuta + "",
+  updateUserById: apiRuta + "",
+
+  /** Person Rutes */
+  getPersons: apiRuta + "",
+  getPersonById: apiRuta + "",
+  addPerson: apiRuta + "",
+  deletePersonById: apiRuta + "",
+  updatePersonById: apiRuta + "",
+
 }

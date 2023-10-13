@@ -2,9 +2,9 @@ import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-import { IDomicilioRepository } from "src/app/Core/Interfaces/repositories/IDomicilio.Repository";
+import { IDomicilioRepository } from "../../Core/Interfaces/repositories/IDomicilio.Repository";
 import { DomicilioModel } from "../Model/Domicilio.Model";
-import { UrlConstantes } from "src/app/Core/Shared/Constants/UrlConstantes";
+import { UrlConstantes } from "../../Core/Shared/Constants/UrlConstantes";
 import { ConsultaList } from "../Model/Shared/ConsultaList";
 
 @Injectable({

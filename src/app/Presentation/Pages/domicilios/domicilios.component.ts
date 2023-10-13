@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DomiciolioService } from 'src/app/security/services/Domicilio.service';
-import { ModalType } from 'src/app/security/shared/models/Base/ModalType.model';
-import { Domicilio } from 'src/app/security/shared/models/Domicilio.model';
-import { AccionesModal } from 'src/app/security/shared/models/enums/AccionesModal.enum';
-import { DomicilioComponent } from '../modals/domicilio/domicilio.component';
-import { AlertasService } from 'src/app/security/services/Alertas.service';
-import { ConsultaList } from 'src/app/security/shared/models/Base/ConsultaList.model';
+import { DomicilioModel } from '../../../Data/Model/Domicilio.Model';
+import { ConsultaList } from '../../../Data/Model/Shared/ConsultaList';
+import { DomicilioService } from '../../../Services/Domicilio.Service';
+import { AlertasService } from '../../Shared/Alertas.service';
+import { AccionesModal } from '../../../Data/enums/AccionesModal.enum';
+import { ModalType } from '../../../Data/Model/Shared/ModalType';
+import { DomicilioComponent } from '../../Modals/domicilio/domicilio.component';
 
 @Component({
   selector: 'app-domicilios',
@@ -16,10 +16,10 @@ import { ConsultaList } from 'src/app/security/shared/models/Base/ConsultaList.m
 export class DomiciliosComponent implements OnInit {
   //#region Inicios
 
-  busqueda: ConsultaList<Domicilio> = new ConsultaList<Domicilio>();
+  busqueda: ConsultaList<DomicilioModel> = new ConsultaList<DomicilioModel>();
 
   constructor(
-    private service: DomiciolioService,
+    private service: DomicilioService,
     private dialog: MatDialog,
     private alertas: AlertasService
   ) { }
@@ -30,13 +30,13 @@ export class DomiciliosComponent implements OnInit {
   //#endregion
 
   //#region Eventos
-  UpdateDomicilioEvent(d: Domicilio) {
+  UpdateDomicilioEvent(d: DomicilioModel) {
     this.openDialog(d, AccionesModal.editar);
   }
   AgregarDomicilioEvent() {
-    this.openDialog(new Domicilio, AccionesModal.crear);
+    this.openDialog(new DomicilioModel, AccionesModal.crear);
   }
-  DeleteDomicilioEvent(d: Domicilio) {
+  DeleteDomicilioEvent(d: DomicilioModel) {
     this.ConfirmaEliminacion(d);
   }
   BuscarPorNombreEvent() {
@@ -45,8 +45,8 @@ export class DomiciliosComponent implements OnInit {
   //#endregion
 
   //#region Metodos
-  openDialog(d: Domicilio, accion: AccionesModal) {
-    let env: ModalType<Domicilio> = new ModalType<Domicilio>();
+  openDialog(d: DomicilioModel, accion: AccionesModal) {
+    let env: ModalType<DomicilioModel> = new ModalType<DomicilioModel>();
     env.param = d;
     env.accion = accion;
     let dialogRef = this.dialog.open(DomicilioComponent, {
@@ -58,9 +58,9 @@ export class DomiciliosComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(res => { this.ConsultaService(); });
   }
-  async ConfirmaEliminacion(d: Domicilio) {
-    let confirmacion;
-    await this.alertas.confirmacionAlert("Alerta", "Seguro que desea eliminar este domicilio", "Eliminar", "cancelar", async function (res) { confirmacion = res; })
+  async ConfirmaEliminacion(d: DomicilioModel) {
+    let confirmacion: any;
+    await this.alertas.confirmacionAlert("Alerta", "Seguro que desea eliminar este domicilio", "Eliminar", "cancelar", async function (res: any) { confirmacion = res; })
     if (await confirmacion.value) {
       this.DeleteDomicilioService(d);
     }
@@ -73,9 +73,9 @@ export class DomiciliosComponent implements OnInit {
       this.busqueda.list = res;
     });
   }
-  DeleteDomicilioService(d) {
+  DeleteDomicilioService(d: any) {
     this.service.BorrarDomicilio(d).subscribe(() => {
-      this.alertas.success(null, "Se ha eliminado correctamente el registro");
+      this.alertas.success(undefined, "Se ha eliminado correctamente el registro");
       this.ConsultaService();
     });
   }

@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { AlertasService } from 'src/app/security/services/Alertas.service';
-import { DomiciolioService } from 'src/app/security/services/Domicilio.service';
-import { ModalType } from 'src/app/security/shared/models/Base/ModalType.model';
-import { Domicilio } from 'src/app/security/shared/models/Domicilio.model';
-import { AccionesModal } from 'src/app/security/shared/models/enums/AccionesModal.enum';
+import { DomicilioModel } from '../../../Data/Model/Domicilio.Model';
+import { ModalType } from '../../../Data/Model/Shared/ModalType';
+import { DomicilioService } from '../../../Services/Domicilio.Service';
+import { AlertasService } from '../../Shared/Alertas.service';
+import { AccionesModal } from '../../../Data/enums/AccionesModal.enum';
 
 @Component({
   selector: 'app-domicilio',
@@ -20,8 +20,8 @@ export class DomicilioComponent implements OnInit {
   //#region Inicios
   constructor(
     private dialog: MatDialogRef<DomicilioComponent>,
-    @Inject(MAT_DIALOG_DATA) public entrada: ModalType<Domicilio>,
-    private service: DomiciolioService,
+    @Inject(MAT_DIALOG_DATA) public entrada: ModalType<DomicilioModel>,
+    private service: DomicilioService,
     private alertas: AlertasService
   ) { }
   ngOnInit() {
@@ -61,8 +61,8 @@ export class DomicilioComponent implements OnInit {
     })
   }
   async EditaService() {
-    let resp;
-    await this.alertas.confirmacionAlert("Confirmación", "Se modificara el domicilio actual", "Modificar", "Cancelar", async function (r) { resp = r });
+    let resp: any;
+    await this.alertas.confirmacionAlert("Confirmación", "Se modificara el domicilio actual", "Modificar", "Cancelar", async function (r: any) { resp = r });
     if (await resp.value) {
       this.service.EditarDomicilio(this.entrada.param).subscribe(response => {
         this.alertas.success("Se ha guardado el cambio");

@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import { CiudadanoModel } from "src/app/Data/Model/Ciudadano.Model";
-import { ConsultaList } from "src/app/Data/Model/Shared/ConsultaList";
+import { CiudadanoModel } from "../../../Data/Model/Ciudadano.Model";
+import { ConsultaList } from "../../../Data/Model/Shared/ConsultaList";
 
 export abstract class ICiudadanoRepository {
   abstract AgregarCiudadano(param: CiudadanoModel): Observable<CiudadanoModel>;

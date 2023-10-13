@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { UrlConstantes } from 'src/app/Core/Shared/Constants/UrlConstantes';
-import { ICiudadanoRepository } from 'src/app/Core/Interfaces/repositories/ICiudadano.Repository';
+import { UrlConstantes } from '../../Core/Shared/Constants/UrlConstantes';
+import { ICiudadanoRepository } from '../../Core/Interfaces/repositories/ICiudadano.Repository';
 import { ConsultaList } from '../Model/Shared/ConsultaList';
 import { CiudadanoModel } from '../Model/Ciudadano.Model';
 import { CiudadanoMapper } from '../Mappers/Ciudadano.Mapper';

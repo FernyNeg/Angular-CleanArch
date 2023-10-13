@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ICiudadanoService } from 'src/app/Core/Interfaces/services/ICiudadano.Service';
-import { CiudadanoModel } from 'src/app/Data/Model/Ciudadano.Model';
-import { ConsultaList } from 'src/app/Data/Model/Shared/ConsultaList';
+import { ICiudadanoService } from '../../../Core/Interfaces/services/ICiudadano.Service';
+import { CiudadanoModel } from '../../../Data/Model/Ciudadano.Model';
+import { ConsultaList } from '../../../Data/Model/Shared/ConsultaList';
 import { AlertasService } from '../../Shared/Alertas.service';
-import { AccionesModal } from 'src/app/Data/enums/AccionesModal.enum';
-import { ModalType } from 'src/app/Data/Model/Shared/ModalType';
+import { AccionesModal } from '../../../Data/enums/AccionesModal.enum';
+import { ModalType } from '../../../Data/Model/Shared/ModalType';
 
 @Component({
   selector: 'app-ciudadanos',

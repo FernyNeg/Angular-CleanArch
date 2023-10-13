@@ -1,4 +1,4 @@
-import { DomicilioEntity } from "src/app/Core/Shared/Entity/Domiclio.Entity";
+import { DomicilioEntity } from "../../Core/Shared/Entity/Domiclio.Entity";
 
 
 export class DomicilioModel extends DomicilioEntity {

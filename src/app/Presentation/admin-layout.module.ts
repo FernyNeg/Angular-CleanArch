@@ -4,7 +4,7 @@ import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-// import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { AdminLayoutRoutes } from "./admin-layout.routing";
 
@@ -21,6 +21,7 @@ import { CiudadanoComponent } from "./Modals/ciudadano/ciudadano.component";
 import { DomicilioComponent } from "./Modals/domicilio/domicilio.component";
 import { ServicesModule } from "../Services/Services.Module";
 import { DataModule } from "../Data/Data.Module";
+import { MenusComponent } from "./Pages/Menus/Menus.component";
 
 @NgModule({
   imports: [
@@ -29,7 +30,10 @@ import { DataModule } from "../Data/Data.Module";
     FormsModule,
     HttpClientModule,
     NgbModule,
-    // MatDialogModule
+    MatDialogModule,
+
+
+    DataModule, ServicesModule,
   ],
   declarations: [
     DashboardComponent,
@@ -42,8 +46,10 @@ import { DataModule } from "../Data/Data.Module";
     CiudadanosComponent,
     CiudadanoComponent,
     DomiciliosComponent,
-    DomicilioComponent
+    DomicilioComponent,
+    MenusComponent,
   ],
-  providers: [ServicesModule, DataModule],
+  providers: [
+  ],
 })
 export class AdminLayoutModule { }

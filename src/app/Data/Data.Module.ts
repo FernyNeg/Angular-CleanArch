@@ -21,10 +21,10 @@ import { UserRepository } from "./Repository/Person/User.Repository";
   providers: [
     { provide: ICiudadanoRepository, useClass: CiudadanoRepository },
     { provide: IDomicilioRepository, useClass: DomicilioRepository },
-    { provide: IMenuRepository, useClass: MenuRepository },
-    { provide: IProfileRepository, useClass: ProfileRepository },
-    { provide: IPersonRepository, useClass: PersonRepository },
-    { provide: IUserRepository, useClass: UserRepository },
+    { provide: IMenuRepository,      useClass: MenuRepository },
+    { provide: IProfileRepository,   useClass: ProfileRepository },
+    { provide: IPersonRepository,    useClass: PersonRepository },
+    { provide: IUserRepository,      useClass: UserRepository },
   ]
 })
 export class DataModule { }

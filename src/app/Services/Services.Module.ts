@@ -13,13 +13,16 @@ import { IUserService } from '../Core/Interfaces/services/Person/IUser.Service';
 import { UserService } from './Person/User.Service';
 
 @NgModule({
+  declarations: [],
+  imports: [],
+  exports: [],
   providers: [
     { provide: ICiudadanoService, useClass: CiudadanoService },
     { provide: IDomicilioService, useClass: DomicilioService },
-    { provide: IMenuService, useClass: MenuService },
-    { provide: IProfileService, useClass: ProfileService },
-    { provide: IPersonService, useClass: PersonService },
-    { provide: IUserService, useClass: UserService },
+    { provide: IMenuService,      useClass: MenuService },
+    { provide: IProfileService,   useClass: ProfileService },
+    { provide: IPersonService,    useClass: PersonService },
+    { provide: IUserService,      useClass: UserService },
   ]
 })
 export class ServicesModule { }

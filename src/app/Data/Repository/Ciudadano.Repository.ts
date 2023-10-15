@@ -12,8 +12,8 @@ import { CiudadanoMapper } from '../Mappers/Ciudadano.Mapper';
 })
 export class CiudadanoRepository implements ICiudadanoRepository {
   mapper = new CiudadanoMapper();
-
   constructor(private conexion: HttpClient) { }
+  
   AgregarCiudadano(param: CiudadanoModel): Observable<CiudadanoModel> {
     return this.conexion
       .post<CiudadanoModel>(UrlConstantes.agregarCiudadano, param)

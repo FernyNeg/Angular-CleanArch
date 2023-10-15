@@ -5,10 +5,7 @@ import { IMenuService } from 'src/app/Core/Interfaces/services/Admin/IMenu.Servi
 import { MenuModel } from 'src/app/Data/Model/Admin/Menu.Model';
 import { ConsultaList } from 'src/app/Data/Model/Shared/ConsultaList';
 
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable({ providedIn: 'root' })
 export class MenuService implements IMenuService {
 
   constructor(private repo: IMenuRepository) { }

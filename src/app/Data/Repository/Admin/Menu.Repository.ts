@@ -5,14 +5,11 @@ import { IMenuRepository } from 'src/app/Core/Interfaces/repositories/Admin/IMen
 import { ConsultaList } from '../../Model/Shared/ConsultaList';
 import { MenuModel } from '../../Model/Admin/Menu.Model';
 import { UrlConstantes } from 'src/app/Core/Shared/Constants/UrlConstantes';
-import { MenuMapper } from '../../Mappers/Admin/Menu.Mapper';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class MenuRepository implements IMenuRepository {
-
   constructor(private Conexion: HttpClient) { }
 
   getMenus(param: ConsultaList<MenuModel>): Observable<MenuModel[]> {
